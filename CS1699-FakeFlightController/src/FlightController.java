@@ -1,7 +1,6 @@
 // world's silliest partial simulated flight controller
 // This doesn't interface with real hardware,
-// 	  because if it did, it would fall out of the
-//    sky if any sensors returned invalid data.
+// 	  because its not supposed to work.
 // Sounds GREAT!
 
 public class FlightController {
@@ -105,5 +104,11 @@ public class FlightController {
 		return accelGood;
 	}
 	
-	
+	// isGyroGood(): void -> boolean
+	//
+	// tells whether the data from the gyroscope is considered good
+	// simply return the value of gyroGood
+	public boolean isGyroGood(){
+		return gyroGood;
+	}
 }

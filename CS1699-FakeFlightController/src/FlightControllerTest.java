@@ -114,8 +114,15 @@ public class FlightControllerTest {
 		assertTrue(fc.isGyroGood() == false);
 	}	
 	
-	
 	// testPreInitMagGood
-	
+	// This test ensures that, before the magnetometer is
+	// initialized, the FlightController assumes that the
+	// data will be bad and does not try to use it
+	// Expected: isMagGood will return false
+	@Test
+	public void testPreInitMagGood(){
+		FlightController fc = new FlightController(1);
+		assertTrue(fc.isMagGood() == false);
+	}	
 	// testPreInitGPSGood
 }
