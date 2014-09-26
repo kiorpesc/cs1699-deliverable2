@@ -1,0 +1,32 @@
+FlightController
+
+FUN-ARM-MOTORS: should be able to arm all motors
+FUN-DISARM-MOTORS: should be able to disarm all motors
+FUN-SET-MOTOR: should be able to set individual motor speeds
+FUN-MAX-PWM: should not be able to set a value above the maximum PWM
+FUN-MIN-PWM: should not be able to set a value below the minimum PWM
+FUN-PRE-INIT: the flight controller should assume ALL sensors are bad
+			until they have been initialized
+FUN-INIT-HARDWARE: the flight controller should initialize all hardware
+				before performing any other functions
+FUN-INVALID-ACCEL: If accelerometer returns invalid data (or None),
+				the controller should stop using its data until the data
+				becomes good again
+FUN-VALID-ACCEL: if the accelerometer data is good, the flight controller
+				should use its data
+FUN-INVALID-GYRO: If gyroscope returns invalid data (or None),
+				the controller should stop using its data until the data
+				becomes good again
+FUN-VALID-GYRO: if the gyroscope data is good, the flight controller
+				should use its data
+FUN-INVALID-MAG: If magnetometer returns invalid data (or None),
+				the controller should stop using its data until the data
+				becomes good again
+FUN-VALID-MAG: if the magnetometer data is good, the flight controller
+				should use its data
+FUN-INVALID-GPS-FIX: If the gps fix type is not 3, the flight controller
+				should not use its data.
+FUN-VALID-GPS: If the GPS data is good (fix is 3),
+			the flight controller should use the data
+FUN-SENSOR-MIX: the flight controller should filter and mix the input
+			from currently good sensors and return an orientation and pose
