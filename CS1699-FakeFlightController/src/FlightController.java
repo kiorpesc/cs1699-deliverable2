@@ -59,6 +59,11 @@ public class FlightController {
 		return retVal;
 	}
 	
+	// armMotors(): void -> boolean
+	//
+	// iterate over the array of motors
+	//    and call each Motor's arm() method
+	// return: success or failure (true or false) 
 	public boolean armMotors(){
 		// attempt to arm all motors
 		for(int i = 0; i < numMotors; i++){
@@ -67,6 +72,11 @@ public class FlightController {
 		return true; // makes the test work!
 	}
 	
+	// disarmMotors(): void -> boolean
+	//
+	// iterate over the array of motors
+	//    and call each Motor's disarm() method
+	// return: success or failure (true or false)
 	public boolean disarmMotors(){
 		// attempt to disarm all motors
 		for(int i = 0; i < numMotors; i++){
@@ -75,9 +85,25 @@ public class FlightController {
 		return true; // makes the test work!
 	}
 	
+	// setMotorSpeed(): int int -> int
+	//
+	// set an individual motor's speed
+	// params:  index - integer index of motor in array
+	//			speed - integer desired speed
+	// return:  the return value from the Motor's setSpeed() method
 	public int setMotorSpeed(int index, int speed){
 		int retVal;
 		retVal = motors[index].setSpeed(speed);
 		return retVal;
 	}
+	
+	// isAccelGood(): void -> boolean
+	//
+	// tells whether the data from the accelerometer is considered good
+	// simply return the value of accelGood
+	public boolean isAccelGood(){
+		return accelGood;
+	}
+	
+	
 }
