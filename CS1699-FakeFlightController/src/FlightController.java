@@ -1,4 +1,4 @@
-// world's silliest flight controller
+// world's silliest partial simulated flight controller
 // This doesn't interface with real hardware,
 // 	  because if it did, it would fall out of the
 //    sky if any sensors returned invalid data.
