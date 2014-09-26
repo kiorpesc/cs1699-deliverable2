@@ -126,4 +126,13 @@ public class FlightControllerTest {
 	}
 	
 	// testPreInitGPSGood
+	// This test ensures that, before the GPS is
+	// initialized, the FlightController assumes that the
+	// data will be bad and does not try to use it
+	// Expected: isGPSGood will return false
+	@Test
+	public void testPreInitGPSGood(){
+		FlightController fc = new FlightController(1);
+		assertTrue(fc.isGPSGood() == false);
+	}
 }

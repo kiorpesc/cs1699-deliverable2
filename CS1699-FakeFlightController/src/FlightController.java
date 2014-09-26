@@ -8,10 +8,6 @@ public class FlightController {
 	private Motor[] motors;
 	private int numMotors;
 	private boolean armed;
-	private int pwmRate;
-	private int minPWM;
-	private int maxPWM;
-	private boolean i2c; 	// if this is enabled, use i2c instead of PWM
 	private Accelerometer accel;
 	private Gyroscope gyro;
 	private Magnetometer mag;
