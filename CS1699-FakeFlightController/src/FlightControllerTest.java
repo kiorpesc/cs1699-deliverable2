@@ -93,8 +93,15 @@ public class FlightControllerTest {
 	}
 	
 	// testPreInitAccelGood
-	// This test ensures that, before the 
-	
+	// This test ensures that, before the accelerometer is
+	// initialized, the FlightController assumes that the
+	// data will be bad and does not try to use it
+	// Expected: accelGood will be false
+	@Test
+	public void testPreInitAccelGood(){
+		FlightController fc = new FlightController(1);
+		assertTrue(fc.isAccelGood() == false);
+	}
 	
 	// testPreInitGyroGood
 	
