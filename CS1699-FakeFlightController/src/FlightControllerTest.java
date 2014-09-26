@@ -123,6 +123,7 @@ public class FlightControllerTest {
 	public void testPreInitMagGood(){
 		FlightController fc = new FlightController(1);
 		assertTrue(fc.isMagGood() == false);
-	}	
+	}
+	
 	// testPreInitGPSGood
 }

@@ -111,4 +111,12 @@ public class FlightController {
 	public boolean isGyroGood(){
 		return gyroGood;
 	}
+	
+	// isMagGood(): void -> boolean
+	//
+	// tells whether the data from the magnetometer is considered good
+	// simply return the value of magGood
+	public boolean isMagGood(){
+		return magGood;
+	}
 }
