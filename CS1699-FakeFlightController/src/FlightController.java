@@ -115,4 +115,12 @@ public class FlightController {
 	public boolean isMagGood(){
 		return magGood;
 	}
+	
+	// isGPSGood(): void -> boolean
+	//
+	// tells whether the data from the GPS is considered good
+	// simply return the value of gpsGood
+	public boolean isGPSGood(){
+		return gpsGood;
+	}
 }
