@@ -123,4 +123,13 @@ public class FlightController {
 	public boolean isGPSGood(){
 		return gpsGood;
 	}
+	
+	// altTooHigh(): void -> boolean
+	//
+	// checks whether the craft has exceeded the
+	// model aircraft ceiling
+	public boolean altTooHigh() {
+		return gps.getAltitude() > 100.0;
+	}
+	
 }

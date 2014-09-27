@@ -16,6 +16,9 @@ public class FlightControllerTest {
 	@Mock
 	Motor mockedMotorArmed = Mockito.mock(Motor.class);
 	
+	@Mock
+	GPS mockedGPS = Mockito.mock(GPS.class);
+	
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(mockedMotorDisarmed);
@@ -140,9 +143,11 @@ public class FlightControllerTest {
 	// This test ensures the aircraft will 
 	// send error if over an altitude of 
 	// 100 meters.
+	// Expected: altTooHigh() will return true
 	@Test
 	public void testAltitudeTooHigh(){
 		FlightController fc = new FlightController(1);
-		assertTrue(fc.altTooHigh() == true);
+		Mockito.when(mockedGPS.getAltitude()).thenReturn(175.3);
+		assertTrue(fc.altTooHigh());
 	}
 }
