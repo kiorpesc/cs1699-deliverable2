@@ -205,9 +205,12 @@ public class FlightController {
 		return targetLongitude - gps.getLongitude();
 	}
 	
+	// check that g forces in all axes are within safe limits
 	public String checkGForces(){
+		double gx = accel.getX();
+		double gy = accel.getY();
 		double gz = accel.getZ();
-		if(Math.abs(gz) > 15.0){
+		if(Math.abs(gx) > 15.0 || Math.abs(gy) > 15.0 || Math.abs(gz) > 15.0){
 			return "Unsafe maneuver! G forces too high!";
 		} else {
 			return "G's within tolerance.";
