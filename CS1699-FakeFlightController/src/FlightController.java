@@ -187,6 +187,10 @@ public class FlightController {
 		return "Outside Loop Successful!";
 	}
 
+	public String immelmannTurn(){
+		return "Successful Immelmann Turn!";
+	}
+	
 	// set the target latitude and longitude
 	public void setGPSTarget(double lat, double longi){
 		targetLatitude = lat;
@@ -216,4 +220,5 @@ public class FlightController {
 			return "G's within tolerance.";
 		}
 	}
+	
 }
