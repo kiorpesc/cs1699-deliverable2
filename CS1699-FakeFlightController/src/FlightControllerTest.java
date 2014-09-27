@@ -396,4 +396,12 @@ public class FlightControllerTest {
 		String actual = fc.splitS();
 		assertEquals(expected, actual);
 	}
+	
+	// testMotorFailure
+	// Test if flight controller can detect
+	// if motor failed.
+	@Test
+	public void testMotorFailure(){
+		FlightController fc = new FlightController(1);
+	}
 }
