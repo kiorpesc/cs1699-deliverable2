@@ -368,6 +368,18 @@ public class FlightControllerTest {
 		assertEquals(expected, result);
 	}
 	
+	@Test
+	public void testWithinSafeGForces(){
+		String expected = "G's within tolerance.";
+		FlightController fc = new FlightController(1);
+		fc.initAccel(mockedAccel);
+		Mockito.when(mockedAccel.getX()).thenReturn(1.0);
+		Mockito.when(mockedAccel.getY()).thenReturn(1.0);
+		Mockito.when(mockedAccel.getZ()).thenReturn(1.0);
+		String result = fc.checkGForces();
+		assertEquals(expected, result);
+	}
+	
 	// testImmelmannTurn 
 	// one of the earliest combat maneuvers, 
 	// named after the World War 1 ace. 
