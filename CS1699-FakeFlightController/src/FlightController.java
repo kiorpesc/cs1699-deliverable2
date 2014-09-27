@@ -56,9 +56,7 @@ public class FlightController {
 	
 	public boolean initGPS(GPS g){
 		boolean retVal = g.init();
-		if(retVal){
-			gps = g;
-		}
+		gps = g;
 		return retVal;
 	}
 	
@@ -137,7 +135,8 @@ public class FlightController {
 	// checks whether the craft has exceeded the
 	// model aircraft ceiling
 	public boolean altTooHigh() {
-		return gps.getAltitude() > 100.0;
+		double alt = gps.getAltitude();
+		return alt > 100.0;
 	}
 	
 }
