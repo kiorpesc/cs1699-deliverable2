@@ -7,6 +7,7 @@ public class FlightController {
 	
 	private Motor[] motors;
 	private int numMotors;
+	private double fuelLevel;
 	private boolean armed;
 	private Accelerometer accel;
 	private Gyroscope gyro;
@@ -232,4 +233,11 @@ public class FlightController {
 		return false;
 	}
 	
+	public void setFuelLevel(double fl){
+		fuelLevel = fl;
+	}
+	
+	public boolean fuelOkay(){
+		return fuelLevel >= 0.25;
+	}
 }

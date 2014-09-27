@@ -430,15 +430,17 @@ public class FlightControllerTest {
 	@Test
 	public void testFuelLevelSafe(){
 	    FlightController fc = new FlightController(1);
-		assertTrue(fc.fuelLevel() >= .25);
+	    fc.setFuelLevel(0.8);
+		assertTrue(fc.fuelOkay());
 	}
 		
 	// testFuelLevelEmpty
 	// Tests the fuel level to see if 
-	// are empty. True, if yes.
+	// are close to empty. True, if yes.
 	@Test
 	public void testFuelLevelEmpty(){
 	    FlightController fc = new FlightController(1);
-		assertTrue(fc.fuelLevel() == 0);
+	    fc.setFuelLevel(0.2);
+		assertTrue(fc.fuelOkay() == false);
 	}
 }
