@@ -264,4 +264,29 @@ public class FlightControllerTest {
 		assertEquals(expected, actual);
 	}
 	
+	// testInsideLoop
+	// In the first one, the Plane is flying level
+	// and pulls up continuously, so that it traces 
+	// a round pattern with the pilot staying inside 
+	// the vertical circle. 
+	@Test
+	public void testInsideLoop(){
+		String expected = "Inside Loop Sussessful!";
+		FlightController fc = new FlightController(1);
+		String actual = fc.insideLoopl();
+		assertEquals(expected, actual);
+	}
+		
+	// testOutsideLoop
+	// In the Outside Loop the plane also starts flying level,
+	// but instead of pulling up, it dives down and traces a 
+	// continuous circle with the pilot staying on the outside 
+	// of the vertical circle. 
+	@Test
+	public void testOutsideLoop(){
+		String expected = "Outside Loop Sussessful!";
+		FlightController fc = new FlightController(1);
+		String actual = fc.outsideLoopl();
+		assertEquals(expected, actual);
+	}
 }
