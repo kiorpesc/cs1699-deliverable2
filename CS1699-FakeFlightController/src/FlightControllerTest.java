@@ -148,6 +148,7 @@ public class FlightControllerTest {
 	public void testAltitudeTooHigh(){
 		FlightController fc = new FlightController(1);
 		Mockito.when(mockedGPS.getAltitude()).thenReturn(175.3);
+		fc.initGPS(mockedGPS);
 		assertTrue(fc.altTooHigh());
 	}
 }

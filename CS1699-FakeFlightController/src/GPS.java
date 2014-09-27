@@ -13,6 +13,10 @@ public class GPS {
 		// construct it here
 	}
 	
+	public boolean init(){
+		return true;
+	}
+	
 	// return the number of currently "visible" satellites
 	public int getNumSats(){
 		return numSats;

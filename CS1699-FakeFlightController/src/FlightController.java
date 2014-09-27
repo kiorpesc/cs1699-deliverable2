@@ -54,6 +54,14 @@ public class FlightController {
 		return retVal;
 	}
 	
+	public boolean initGPS(GPS g){
+		boolean retVal = g.init();
+		if(retVal){
+			gps = g;
+		}
+		return retVal;
+	}
+	
 	// armMotors(): void -> boolean
 	//
 	// iterate over the array of motors
