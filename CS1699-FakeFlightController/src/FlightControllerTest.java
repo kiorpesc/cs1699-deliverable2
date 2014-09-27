@@ -135,4 +135,14 @@ public class FlightControllerTest {
 		FlightController fc = new FlightController(1);
 		assertTrue(fc.isGPSGood() == false);
 	}
+	
+	// testAltitudeTooHigh
+	// This test ensures the aircraft will 
+	// send error if over an altitude of 
+	// 100 meters.
+	@Test
+	public void testAltitudeTooHigh(){
+		FlightController fc = new FlightController(1);
+		assertTrue(fc.altTooHigh() == true);
+	}
 }
