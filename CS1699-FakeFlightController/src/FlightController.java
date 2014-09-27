@@ -191,6 +191,10 @@ public class FlightController {
 		return "Successful Immelmann Turn!";
 	}
 	
+	public String splitS(){
+		return "Successful Split S!";
+	}
+	
 	// set the target latitude and longitude
 	public void setGPSTarget(double lat, double longi){
 		targetLatitude = lat;

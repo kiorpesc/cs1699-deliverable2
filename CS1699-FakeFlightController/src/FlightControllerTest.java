@@ -374,7 +374,8 @@ public class FlightControllerTest {
 	// named after the World War 1 ace. 
 	// A/C pulls vertically until it is inverted 
 	// and then rolls back upright and continues 
-	// flying in opposite direction. 
+	// flying in opposite direction.
+	// Expected: fc.immelmannTurn() returns "Successful Immelmann Turn!"
 	@Test
 	public void testImmelmannTurn(){
 	    String expected = "Successful Immelmann Turn!";
@@ -387,7 +388,8 @@ public class FlightControllerTest {
 	// Plane starts level and then rolls inverted
 	// and dives down and completes bottom half of
 	// loop, and continues flying in opposite
-	// direction. The opposite of an Immelmann Turn. 
+	// direction. The opposite of an Immelmann Turn.
+	// Expected: fc.splitS() returns "Successful Split S!"
 	@Test
 	public void testSplitS(){
 	    String expected = "Successful Split S!";
