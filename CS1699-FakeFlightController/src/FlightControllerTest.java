@@ -152,4 +152,59 @@ public class FlightControllerTest {
 		Mockito.when(mockedGPS.getAltitude()).thenReturn(alt);
 		assertTrue(fc.altTooHigh());
 	}
+	
+	// testAltitudeTooLow
+	// This test ensures the aircraft will
+	// send error if under an altitude of 
+	// 1 meter.
+	@Test
+	public void testAltitudeTooLow(){
+		FlightController fc = new FlightController(1);
+		assertTrue(fc.altTooLow() == true);
+	}
+	
+	// testGoingLightSpeed
+	// This test ensures the aircraft will
+	// send error if over a velocity of 
+	// 3 x 10^8 meters/second.
+	@Test
+	public void testGoingLightSpeed(){
+		
+	}
+	
+	// testSpeedWayTooFast
+	// This test ensures the aircraft will
+	// send error if over a velocity of 
+	// 40 meters/second.
+	@Test
+	public void testSpeedWayTooFast(){
+		
+	}
+		
+	// testSpeedTooFast
+	// This test ensures the aircraft will
+	// send error if over a velocity of 
+	// 15 meters/second.
+	@Test
+	public void testSpeedTooFast(){
+		
+	}
+	
+	// testSpeedAverage
+	// This test ensures the aircraft will
+	// report a velocity of 
+	// 10 meters/second. (idk...)
+	@Test
+	public void testSpeedAverage(){
+		
+	}
+		
+	// testSpeedTooSlow
+	// This test ensures the aircraft will
+	// send error if under a velocity of 
+	// 5 meters/second.
+	@Test
+	public void testSpeedTooSlow(){
+		
+	}
 }
