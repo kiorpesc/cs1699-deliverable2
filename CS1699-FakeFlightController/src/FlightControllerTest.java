@@ -404,4 +404,5 @@ public class FlightControllerTest {
 	public void testMotorFailure(){
 		FlightController fc = new FlightController(1);
 	}
+	
 }
