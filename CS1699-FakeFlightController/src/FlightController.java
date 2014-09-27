@@ -139,4 +139,29 @@ public class FlightController {
 		return alt > 100.0;
 	}
 	
+	// altTooLow(): void -> boolean
+	//
+	// checks whether the craft is below
+	// one meter
+	public boolean altTooLow() {
+		double alt = gps.getAltitude();
+		return alt < 1.0;
+	}
+	
+	public String speedCheck(){
+		double vel = gps.getVelocity();
+		
+		if (vel >= 300000000.0){
+			return "LUDICROUS SPEED!";
+		} else if (vel > 40.0){
+			return "WAY TOO FAST!";
+		} else if (vel > 15.0){
+			return "TOO FAST!";
+		} else if (vel < 5.0){
+			return "TOO SLOW!";
+		} else {
+			return "SPEED OKAY";
+		}
+		
+	}
 }

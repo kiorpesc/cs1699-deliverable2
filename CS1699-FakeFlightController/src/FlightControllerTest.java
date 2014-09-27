@@ -159,7 +159,10 @@ public class FlightControllerTest {
 	// 1 meter.
 	@Test
 	public void testAltitudeTooLow(){
+		double alt = 0.5;
 		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getAltitude()).thenReturn(alt);
 		assertTrue(fc.altTooLow() == true);
 	}
 	
@@ -169,7 +172,15 @@ public class FlightControllerTest {
 	// 3 x 10^8 meters/second.
 	@Test
 	public void testGoingLightSpeed(){
+		double test_vel = 300000001.0;
+		String expected = "LUDICROUS SPEED!";
 		
+		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getVelocity()).thenReturn(test_vel);
+		String actual = fc.speedCheck();
+		
+		assertEquals(expected, actual);
 	}
 	
 	// testSpeedWayTooFast
@@ -178,7 +189,15 @@ public class FlightControllerTest {
 	// 40 meters/second.
 	@Test
 	public void testSpeedWayTooFast(){
+		double test_vel = 45.0;
+		String expected = "WAY TOO FAST!";
 		
+		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getVelocity()).thenReturn(test_vel);
+		String actual = fc.speedCheck();
+		
+		assertEquals(expected, actual);		
 	}
 		
 	// testSpeedTooFast
@@ -187,24 +206,62 @@ public class FlightControllerTest {
 	// 15 meters/second.
 	@Test
 	public void testSpeedTooFast(){
+		double test_vel = 16.4;
+		String expected = "TOO FAST!";
 		
+		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getVelocity()).thenReturn(test_vel);
+		String actual = fc.speedCheck();
+		
+		assertEquals(expected, actual);		
 	}
 	
 	// testSpeedAverage
 	// This test ensures the aircraft will
-	// report a velocity of 
-	// 10 meters/second. (idk...)
+	// report "GOOD" at a velocity between
+	// 5 m/s and 15 m/s
 	@Test
 	public void testSpeedAverage(){
+		double test_vel = 12.2;
+		String expected = "SPEED OKAY";
 		
+		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getVelocity()).thenReturn(test_vel);
+		String actual = fc.speedCheck();
+		
+		assertEquals(expected, actual);
 	}
 		
 	// testSpeedTooSlow
 	// This test ensures the aircraft will
-	// send error if under a velocity of 
+	// send error "TOO SLOW" if velocity is below 
 	// 5 meters/second.
 	@Test
 	public void testSpeedTooSlow(){
+		double test_vel = 3.1;
+		String expected = "TOO SLOW!";
 		
+		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getVelocity()).thenReturn(test_vel);
+		String actual = fc.speedCheck();
+		
+		assertEquals(expected, actual);
 	}
+	
+	// testDoABarrelRoll()
+	// this test ensures that the flight controller
+	// performs an actual barrel roll when
+	// the doABarrelRoll() method is called
+	// Expected: returns "DO A BARREL ROLL!"
+	@Test
+	public void testDoABarrelRoll(){
+		String expected = "DO A BARREL ROLL!";
+		FlightController fc = new FlightController(1);
+		String actual = fc.doABarrelRoll();
+		assertEquals(expected, actual);
+	}
+	
 }
