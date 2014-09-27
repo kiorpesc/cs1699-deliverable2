@@ -2,10 +2,12 @@
 public class Motor {
 	private int speed;  // 0 - 1023?
 	private boolean armed;  // is the motor output active?
+	private int rps;
 	
 	public Motor() {
 		armed = false;
 		speed = 0;
+		rps = 0;
 	}
 	
 	// return whether or not the motor is armed
@@ -34,5 +36,9 @@ public class Motor {
 	public int setSpeed(int spd){
 		speed = spd;
 		return speed;
+	}
+	
+	public int getRPS(){
+		return rps;
 	}
 }

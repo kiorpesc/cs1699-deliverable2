@@ -411,16 +411,24 @@ public class FlightControllerTest {
 	
 	// testMotorFailure
 	// Test if flight controller can detect
-	// if motor failed.
+	// if any motors have failed.
 	@Test
 	public void testMotorFailure(){
+		int motor = 0; // motor zero should fail
 		FlightController fc = new FlightController(1);
+		fc.addMotor(0, mockedMotorArmed);
+		Mockito.when(mockedMotorArmed.isArmed()).thenReturn(true);
+		Mockito.when(mockedMotorArmed.getSpeed()).thenReturn(300);
+		Mockito.when(mockedMotorArmed.getRPS()).thenReturn(0);
+		boolean result = fc.testMotor(motor);
+		assertTrue(result);
 	}
 	
 	// test
 	@Test
 	public void testSomethingElse(){
 		FlightController fc = new FlightController(1);
+		fail();
 	}
 	
 	

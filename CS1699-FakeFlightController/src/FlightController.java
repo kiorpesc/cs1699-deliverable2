@@ -225,4 +225,11 @@ public class FlightController {
 		}
 	}
 	
+	public boolean testMotor(int index){
+		if(motors[index].isArmed() && motors[index].getSpeed() > 0 && motors[index].getRPS() == 0){
+			return true;
+		}
+		return false;
+	}
+	
 }
