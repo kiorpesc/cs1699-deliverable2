@@ -45,17 +45,15 @@ public class FlightController {
 		}
 		return true;
 	}
-	/*
+
 	// initialize the accelerometer hardware
 	// if the initialization fails, return false
 	public boolean initAccel(Accelerometer a){
 		boolean retVal = a.init();
-		if (retVal){
-			accel = a;
-		}
+		accel = a;
 		return retVal;
 	}
-	*/
+	
 	public boolean initGPS(GPS g){
 		boolean retVal = g.init();
 		gps = g;
@@ -205,5 +203,14 @@ public class FlightController {
 	// longitude and the target longitude
 	public double getLongError() {
 		return targetLongitude - gps.getLongitude();
+	}
+	
+	public String checkGForces(){
+		double gz = accel.getZ();
+		if(Math.abs(gz) > 15.0){
+			return "Unsafe maneuver! G forces too high!";
+		} else {
+			return "G's within tolerance.";
+		}
 	}
 }

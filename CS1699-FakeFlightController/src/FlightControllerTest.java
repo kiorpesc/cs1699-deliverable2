@@ -19,10 +19,15 @@ public class FlightControllerTest {
 	@Mock
 	GPS mockedGPS = Mockito.mock(GPS.class);
 	
+	@Mock
+	Accelerometer mockedAccel = Mockito.mock(Accelerometer.class);
+	
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(mockedMotorDisarmed);
 		MockitoAnnotations.initMocks(mockedMotorArmed);
+		MockitoAnnotations.initMocks(mockedGPS);
+		MockitoAnnotations.initMocks(mockedAccel);
 		
 		// stubs!
 		Mockito.when(mockedMotorDisarmed.isArmed()).thenReturn(false);
