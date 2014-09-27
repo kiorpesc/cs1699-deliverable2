@@ -150,6 +150,9 @@ public class FlightController {
 		return alt < 1.0;
 	}
 	
+	// check the current velocity
+	// and return a message indicating
+	// the status
 	public String speedCheck(){
 		double vel = gps.getVelocity();
 		
@@ -166,27 +169,40 @@ public class FlightController {
 		}
 	}
 	
+	// have the craft perform
+	// a barrel roll (in spirit only)
 	public String doABarrelRoll() {
 		return "DO A BARREL ROLL!";
 	}
 
+	// have the craft perform an
+	// inside loop (by returning a
+	// String claiming that it did so)
 	public String insideLoop() {
 		return "Inside Loop Successful!";
 	}
 
+	// have the craft perform an
+	// outside loop (by returning a
+	// String claiming that it did so)
 	public String outsideLoop() {
 		return "Outside Loop Successful!";
 	}
 
+	// set the target latitude and longitude
 	public void setGPSTarget(double lat, double longi){
 		targetLatitude = lat;
 		targetLongitude = longi;
 	}
 	
+	// get the difference between the current
+	// latitude and the target latitude
 	public double getLatError() {
 		return targetLatitude - gps.getLatitude();
 	}
 	
+	// get the difference between the current
+	// longitude and the target longitude
 	public double getLongError() {
 		return targetLongitude - gps.getLongitude();
 	}
