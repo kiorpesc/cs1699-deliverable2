@@ -405,4 +405,10 @@ public class FlightControllerTest {
 		FlightController fc = new FlightController(1);
 	}
 	
+	// test
+	@Test
+	public void testSomethingElse(){
+		FlightController fc = new FlightController(1);
+	}
+	
 }
