@@ -273,7 +273,7 @@ public class FlightControllerTest {
 	public void testInsideLoop(){
 		String expected = "Inside Loop Sussessful!";
 		FlightController fc = new FlightController(1);
-		String actual = fc.insideLoopl();
+		String actual = fc.insideLoop();
 		assertEquals(expected, actual);
 	}
 		
@@ -286,7 +286,7 @@ public class FlightControllerTest {
 	public void testOutsideLoop(){
 		String expected = "Outside Loop Sussessful!";
 		FlightController fc = new FlightController(1);
-		String actual = fc.outsideLoopl();
+		String actual = fc.outsideLoop();
 		assertEquals(expected, actual);
 	}
 }
