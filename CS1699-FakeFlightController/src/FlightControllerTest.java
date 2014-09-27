@@ -340,12 +340,59 @@ public class FlightControllerTest {
 	// Accelerometer's z axis are greater
 	// than 15 Gs or less than -15 Gs
 	@Test
-	public void testExceedingSafeGForces(){
+	public void testExceedingSafeGForcesZ(){
 		String expected = "Unsafe maneuver! G forces too high!";
 		FlightController fc = new FlightController(1);
 		fc.initAccel(mockedAccel);
 		Mockito.when(mockedAccel.getZ()).thenReturn(16.3);
 		String result = fc.checkGForces();
 		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void testExceedingSafeGForcesX(){
+		String expected = "Unsafe maneuver! G forces too high!";
+		FlightController fc = new FlightController(1);
+		fc.initAccel(mockedAccel);
+		Mockito.when(mockedAccel.getX()).thenReturn(16.3);
+		String result = fc.checkGForces();
+		assertEquals(expected, result);
+	}
+	
+	@Test
+	public void testExceedingSafeGForcesY(){
+		String expected = "Unsafe maneuver! G forces too high!";
+		FlightController fc = new FlightController(1);
+		fc.initAccel(mockedAccel);
+		Mockito.when(mockedAccel.getY()).thenReturn(16.3);
+		String result = fc.checkGForces();
+		assertEquals(expected, result);
+	}
+	
+	// testImmelmannTurn 
+	// one of the earliest combat maneuvers, 
+	// named after the World War 1 ace. 
+	// A/C pulls vertically until it is inverted 
+	// and then rolls back upright and continues 
+	// flying in opposite direction. 
+	@Test
+	public void testImmelmannTurn(){
+	    String expected = "Successful Immelmann Turn!";
+		FlightController fc = new FlightController(1);
+		String actual = fc.immelmannTurn();
+		assertEquals(expected, actual);
+	}
+		
+	// testSplitS 
+	// Plane starts level and then rolls inverted
+	// and dives down and completes bottom half of
+	// loop, and continues flying in opposite
+	// direction. The opposite of an Immelmann Turn. 
+	@Test
+	public void testSplitS(){
+	    String expected = "Successful Split S!";
+		FlightController fc = new FlightController(1);
+		String actual = fc.splitS();
+		assertEquals(expected, actual);
 	}
 }
