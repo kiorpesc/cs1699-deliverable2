@@ -162,6 +162,10 @@ public class FlightController {
 		} else {
 			return "SPEED OKAY";
 		}
-		
 	}
+	
+	public String doABarrelRoll() {
+		return "DO A BARREL ROLL!";
+	}
+
 }
