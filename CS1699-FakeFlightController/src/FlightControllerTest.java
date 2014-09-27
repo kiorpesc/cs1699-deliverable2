@@ -296,7 +296,6 @@ public class FlightControllerTest {
 	}
 	
 	// testGPSTargetLat
-	@SuppressWarnings("deprecation")
 	// check that the flight controller
 	// returns the correct distance
 	// between the current GPS latitude
