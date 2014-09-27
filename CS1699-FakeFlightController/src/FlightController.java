@@ -45,7 +45,7 @@ public class FlightController {
 		}
 		return true;
 	}
-	
+	/*
 	// initialize the accelerometer hardware
 	// if the initialization fails, return false
 	public boolean initAccel(Accelerometer a){
@@ -55,7 +55,7 @@ public class FlightController {
 		}
 		return retVal;
 	}
-	
+	*/
 	public boolean initGPS(GPS g){
 		boolean retVal = g.init();
 		gps = g;

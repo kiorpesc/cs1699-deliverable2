@@ -328,4 +328,19 @@ public class FlightControllerTest {
 		double result = fc.getLongError();
 		assertTrue(Math.abs(expected - result) < 0.001);
 	}
+	
+	// testExceedingSafeGForces
+	// tests that the checkGForces() method
+	// returns a warning if G's in the 
+	// Accelerometer's z axis are greater
+	// than 15 Gs or less than -15 Gs
+	@Test
+	public void testExceedingSafeGForces(){
+		String expected = "Unsafe maneuver! G forces too high!";
+		FlightController fc = new FlightController(1);
+		fc.initAccel(mockedAccel);
+		Mockito.when(mockedAccel.getZ()).thenReturn(16.3);
+		String result = fc.checkGForces();
+		assertEquals(expected, result);
+	}
 }
