@@ -289,4 +289,43 @@ public class FlightControllerTest {
 		String actual = fc.outsideLoop();
 		assertEquals(expected, actual);
 	}
+	
+	// testGPSTargetLat
+	@SuppressWarnings("deprecation")
+	// check that the flight controller
+	// returns the correct distance
+	// between the current GPS latitude
+	// and the target GPS waypoint
+	// Input: target is 23.4
+	// Expected: 23.4
+	@Test
+	public void testGPSTargetLat(){
+		double bogus_lat = 23.4;
+		double expected = 14.4;
+		FlightController fc = new FlightController(1);
+		fc.setGPSTarget(bogus_lat, 0.0);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getLatitude()).thenReturn(9.0);
+		double result = fc.getLatError();
+		assertTrue(Math.abs(expected - result) < 0.001);
+	}
+	
+	// testGPSTargetLong
+	// check that the flight controller
+	// returns the correct distance
+	// between the current GPS longitude
+	// and the target GPS waypoint
+	// Input: target is 23.4
+	// Expected: 23.4
+	@Test
+	public void testGPSTargetLong(){
+		double bogus_long = 23.4;
+		double expected = 14.4;
+		FlightController fc = new FlightController(1);
+		fc.setGPSTarget(0.0, bogus_long);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getLongitude()).thenReturn(9.0);
+		double result = fc.getLongError();
+		assertTrue(Math.abs(expected - result) < 0.001);
+	}
 }

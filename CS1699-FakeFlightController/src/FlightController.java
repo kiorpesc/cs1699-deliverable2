@@ -12,6 +12,8 @@ public class FlightController {
 	private Gyroscope gyro;
 	private Magnetometer mag;
 	private GPS gps;
+	private double targetLatitude;
+	private double targetLongitude;
 	private boolean accelGood;	// is it okay to use the accel data
 	private boolean gyroGood;	// is it okay to use the gyro data 
 	private boolean magGood;	// is it okay to use the mag data
@@ -176,5 +178,16 @@ public class FlightController {
 		return "Outside Loop Successful!";
 	}
 
+	public void setGPSTarget(double lat, double longi){
+		targetLatitude = lat;
+		targetLongitude = longi;
+	}
 	
+	public double getLatError() {
+		return targetLatitude - gps.getLatitude();
+	}
+	
+	public double getLongError() {
+		return targetLongitude - gps.getLongitude();
+	}
 }
