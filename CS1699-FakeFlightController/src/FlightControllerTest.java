@@ -271,7 +271,7 @@ public class FlightControllerTest {
 	// the vertical circle. 
 	@Test
 	public void testInsideLoop(){
-		String expected = "Inside Loop Sussessful!";
+		String expected = "Inside Loop Successful!";
 		FlightController fc = new FlightController(1);
 		String actual = fc.insideLoop();
 		assertEquals(expected, actual);
@@ -284,7 +284,7 @@ public class FlightControllerTest {
 	// of the vertical circle. 
 	@Test
 	public void testOutsideLoop(){
-		String expected = "Outside Loop Sussessful!";
+		String expected = "Outside Loop Successful!";
 		FlightController fc = new FlightController(1);
 		String actual = fc.outsideLoop();
 		assertEquals(expected, actual);

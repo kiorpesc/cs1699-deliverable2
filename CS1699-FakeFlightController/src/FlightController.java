@@ -168,4 +168,13 @@ public class FlightController {
 		return "DO A BARREL ROLL!";
 	}
 
+	public String insideLoop() {
+		return "Inside Loop Successful!";
+	}
+
+	public String outsideLoop() {
+		return "Outside Loop Successful!";
+	}
+
+	
 }
