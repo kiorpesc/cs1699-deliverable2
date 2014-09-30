@@ -1,3 +1,4 @@
+package com.kiorpes.fc;
 // world's silliest partial simulated flight controller
 // This doesn't interface with real hardware,
 // 	  because its not supposed to work.
@@ -240,4 +241,6 @@ public class FlightController {
 	public boolean fuelOkay(){
 		return fuelLevel >= 0.25;
 	}
+	
+	// TODO: implement main function to tie it all together.
 }

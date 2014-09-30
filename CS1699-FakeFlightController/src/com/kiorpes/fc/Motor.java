@@ -1,3 +1,4 @@
+package com.kiorpes.fc;
 
 public class Motor {
 	private int speed;  // 0 - 1023?

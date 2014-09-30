@@ -5,6 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
+import com.kiorpes.fc.Accelerometer;
+import com.kiorpes.fc.FlightController;
+import com.kiorpes.fc.GPS;
+import com.kiorpes.fc.Motor;
+
 // Test the FlightController class
 public class FlightControllerTest {
 
