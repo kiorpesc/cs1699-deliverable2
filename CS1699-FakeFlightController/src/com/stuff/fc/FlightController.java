@@ -1,9 +1,25 @@
-package com.stuff.fc;
-// world's silliest partial simulated flight controller
-// This doesn't interface with real hardware,
-// 	  because its not supposed to work.
-// Sounds GREAT!
+// File: FlightController.java
+// Authors: Elizabeth Davis, Charles Kiorpes
+// Date: September 27th, 2014
+//
+// This is a partially implemented flight controller, intended
+// mainly as an enumeration of necessary subparts and probably
+// best for something like a basic video game or a text-only
+// simulation in which the tiny details don't matter as much
+//
+// TODO: A lot.
+// Certain behaviors, like takeoff, landing, maneuvers, etc,
+// are only implemented as String returns.  These methods could
+// (and should) be altered to also simulate the actual altitude,
+// G-force, orientation, throttle, and other changes that would
+// occur during the specified behavior.
 
+package com.stuff.fc;
+
+// world's silliest partial simulated flight controller
+// This doesn't interface with real hardware, for
+//     everyone's safety.
+// Sounds GREAT!
 public class FlightController {
 	
 	private Motor[] motors;
@@ -21,6 +37,7 @@ public class FlightController {
 	private boolean magGood;	// is it okay to use the mag data
 	private boolean gpsGood;	// is it okay to use the gps data
 	
+	// constructor
 	public FlightController(int nMotors){
 		accelGood = false;
 		gyroGood = false;
@@ -30,11 +47,16 @@ public class FlightController {
 		motors = new Motor[numMotors];
 	}
 	
+	// addMotor(): int + Motor -> void
+	//
+	// add a Motor instance at the given index
 	// this ONLY exists for the sake of the test
 	public void addMotor(int index, Motor m){
 		motors[index] = m;
 	}
 	
+	// checkMotors(): void -> boolean
+	//
 	// check that all motors have been initialized
 	// by trying their isArmed() method
 	public boolean checkMotors(){
@@ -48,6 +70,8 @@ public class FlightController {
 		return true;
 	}
 
+	// initAccel(): Accelerometer -> boolean
+	//
 	// initialize the accelerometer hardware
 	// if the initialization fails, return false
 	public boolean initAccel(Accelerometer a){
@@ -150,6 +174,8 @@ public class FlightController {
 		return alt < 1.0;
 	}
 	
+	// speedCheck(): void -> String
+	//
 	// check the current velocity
 	// and return a message indicating
 	// the status
@@ -169,12 +195,16 @@ public class FlightController {
 		}
 	}
 	
+	// doABarrelRoll(): void -> String
+	//
 	// have the craft perform
 	// a barrel roll (in spirit only)
 	public String doABarrelRoll() {
 		return "DO A BARREL ROLL!";
 	}
 
+	// insideLoop(): void -> String
+	//
 	// have the craft perform an
 	// inside loop (by returning a
 	// String claiming that it did so)
@@ -182,6 +212,8 @@ public class FlightController {
 		return "Inside Loop Successful!";
 	}
 
+	// outsideLoop(): void -> String
+	//
 	// have the craft perform an
 	// outside loop (by returning a
 	// String claiming that it did so)
@@ -189,33 +221,52 @@ public class FlightController {
 		return "Outside Loop Successful!";
 	}
 
+	// immelmannTurn(): void -> String
+	//
+	// have the craft perform an
+	// Immelmann turn (by returning a
+	// String claiming that it did so)
 	public String immelmannTurn(){
 		return "Successful Immelmann Turn!";
 	}
 	
+	// splitS(): void -> String
+	//
+	// have the craft perform a
+	// split S (by returning a
+	// String claiming that it did so)
 	public String splitS(){
 		return "Successful Split S!";
 	}
 	
+	// setGPSTarget(): void -> void
+	//
 	// set the target latitude and longitude
 	public void setGPSTarget(double lat, double longi){
 		targetLatitude = lat;
 		targetLongitude = longi;
 	}
 	
-	// get the difference between the current
+	// getLatError(): void -> double
+	//
+	// return the difference between the current
 	// latitude and the target latitude
 	public double getLatError() {
 		return targetLatitude - gps.getLatitude();
 	}
 	
-	// get the difference between the current
+	// getLongError(): void -> double
+	//
+	// return the difference between the current
 	// longitude and the target longitude
 	public double getLongError() {
 		return targetLongitude - gps.getLongitude();
 	}
 	
-	// check that g forces in all axes are within safe limits
+	// checkGForces(): void -> String
+	//
+	// check that g forces in all axes are within safe limits,
+	// returning a String stating the status
 	public String checkGForces(){
 		double gx = accel.getX();
 		double gy = accel.getY();
@@ -227,6 +278,12 @@ public class FlightController {
 		}
 	}
 	
+	// testMotor(): int -> boolean
+	//
+	// check that the motor at the given index
+	// has not failed by ensuring that, if the speed
+	// is greater than zero, the motor's RPS is also
+	// greater than zero
 	public boolean testMotor(int index){
 		if(motors[index].isArmed() && motors[index].getSpeed() > 0 && motors[index].getRPS() == 0){
 			return true;
@@ -234,10 +291,18 @@ public class FlightController {
 		return false;
 	}
 	
+	// setFuelLevel(): double -> void
+	//
+	// a utility function to manually
+	// set the fuel level
 	public void setFuelLevel(double fl){
 		fuelLevel = fl;
 	}
 	
+	// fuelOkay(): void -> boolean
+	//
+	// returns whether the fuel level is
+	// at 0.25 or higher
 	public boolean fuelOkay(){
 		return fuelLevel >= 0.25;
 	}

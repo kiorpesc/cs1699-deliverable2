@@ -1,3 +1,9 @@
+// File: FlightControllerTest.java
+// Authors: Elizabeth Davis, Charles Kiorpes
+// Date: September 27th, 2014
+//
+// The test class for testing the FlightController class.
+
 import static org.junit.Assert.*;
 
 import org.junit.After;
