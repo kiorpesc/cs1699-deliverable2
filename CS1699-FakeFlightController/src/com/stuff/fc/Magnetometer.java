@@ -1,4 +1,4 @@
-package com.kiorpes.fc;
+package com.stuff.fc;
 
 public class Magnetometer {
 

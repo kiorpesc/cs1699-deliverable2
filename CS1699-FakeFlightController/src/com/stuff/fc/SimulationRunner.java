@@ -1,4 +1,12 @@
-package com.kiorpes.fc;
+// File: SimulationRunner.java
+// Author: Charles Kiorpes
+// Date: September 30th, 2014
+//
+// This class exists just to start up the flight controller
+// under simulated circumstances and run a subset of its
+// built-in functions.
+
+package com.stuff.fc;
 
 // this class runs the simulated flight controller(s)
 public class SimulationRunner {
@@ -60,6 +68,9 @@ public class SimulationRunner {
 		fc1.setMotorSpeed(0, 500);
 		
 		// check that we're in the air?
+		// something something fc1.isLanded()
+		// since the altitude currently never changes from 0.0,
+		// this would hang the program
 		
 		System.out.println("FLIGHT: Begin aerial maneuvers");
 		// begin maneuvers, checking fuel level
@@ -71,6 +82,13 @@ public class SimulationRunner {
 			fc1.setFuelLevel(fl);
 		}
 		// LAND
+		System.out.println("LANDING: Beginning landing procedure");
+		// do some stuff
+		while(!fc1.isLanded()){
+			// continue landing procedure
+		}
+		System.out.println("LANDING: The craft has touched down");
+		
 		System.out.println("LANDING: Shutting down motors");
 		fc1.setMotorSpeed(0, 0);
 		// disarm

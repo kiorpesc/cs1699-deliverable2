@@ -5,10 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.*;
 
-import com.kiorpes.fc.Accelerometer;
-import com.kiorpes.fc.FlightController;
-import com.kiorpes.fc.GPS;
-import com.kiorpes.fc.Motor;
+import com.stuff.fc.Accelerometer;
+import com.stuff.fc.FlightController;
+import com.stuff.fc.GPS;
+import com.stuff.fc.Motor;
 
 // Test the FlightController class
 public class FlightControllerTest {
@@ -306,7 +306,7 @@ public class FlightControllerTest {
 	// between the current GPS latitude
 	// and the target GPS waypoint
 	// Input: target is 23.4
-	// Expected: 23.4
+	// Expected: error is within 0.001 of 14.4
 	@Test
 	public void testGPSTargetLat(){
 		double bogus_lat = 23.4;
@@ -325,7 +325,7 @@ public class FlightControllerTest {
 	// between the current GPS longitude
 	// and the target GPS waypoint
 	// Input: target is 23.4
-	// Expected: 23.4
+	// Expected: error is within 0.001 of 14.4
 	@Test
 	public void testGPSTargetLong(){
 		double bogus_long = 23.4;
@@ -449,16 +449,27 @@ public class FlightControllerTest {
 		assertTrue(fc.fuelOkay() == false);
 	}
 	
-	// testOnGround
+	// testIsLandedOnGround
 	// tests whether the isLanded()
 	// method returns true when the craft
 	// is on the ground
 	@Test
-	public void testOnGround(){
+	public void testIsLandedOnGround(){
 		FlightController fc = new FlightController(1);
 		fc.initGPS(mockedGPS);
 		Mockito.when(mockedGPS.getAltitude()).thenReturn(0.0);
 		assertTrue(fc.isLanded());
 	}
 	
+	// testIsLandedInAir
+	// tests whether the isLanded()
+	// method returns true when the craft
+	// is not on the ground
+	@Test
+	public void testIsLandedInAir(){
+		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getAltitude()).thenReturn(30.0);
+		assertTrue(!fc.isLanded());
+	}
 }
