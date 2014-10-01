@@ -241,4 +241,18 @@ public class FlightController {
 	public boolean fuelOkay(){
 		return fuelLevel >= 0.25;
 	}
+	
+	// isLanded(): void -> boolean
+	// 
+	// return whether or not the craft
+	// is on the ground (relative altitude,
+	// so ground is ALWAYS 0.0m)
+	public boolean isLanded(){
+		boolean result = true;
+		double alt = gps.getAltitude();
+		if(alt > 0.0) {
+			result = false;
+		}
+		return result;
+	}
 }
