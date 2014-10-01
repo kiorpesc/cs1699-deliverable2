@@ -241,6 +241,4 @@ public class FlightController {
 	public boolean fuelOkay(){
 		return fuelLevel >= 0.25;
 	}
-	
-	// TODO: implement main function to tie it all together.
 }
