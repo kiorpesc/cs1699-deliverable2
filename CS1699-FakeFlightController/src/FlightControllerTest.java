@@ -448,4 +448,17 @@ public class FlightControllerTest {
 	    fc.setFuelLevel(0.2);
 		assertTrue(fc.fuelOkay() == false);
 	}
+	
+	// testOnGround
+	// tests whether the isLanded()
+	// method returns true when the craft
+	// is on the ground
+	@Test
+	public void testOnGround(){
+		FlightController fc = new FlightController(1);
+		fc.initGPS(mockedGPS);
+		Mockito.when(mockedGPS.getAltitude()).thenReturn(0.0);
+		assertTrue(fc.isLanded());
+	}
+	
 }
